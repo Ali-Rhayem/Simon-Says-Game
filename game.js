@@ -39,6 +39,15 @@ function sound(color){
     audio.play()
 }
 
+document.querySelectorAll(".btn").forEach((button) => {
+    button.addEventListener('click', (btn) => {
+        let userChosenColor = btn.target.id;
+        userClickedPattern.push(userChosenColor);
+        AnimateUserPress(userChosenColor);
+        playSound(userChosenColor);
+    });
+});
+
 function AnimateUserPress(currentColor) {
     document.getElementById(currentColor).classList.add("pressed");
     setTimeout(() => {
