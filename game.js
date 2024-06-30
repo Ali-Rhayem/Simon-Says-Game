@@ -38,3 +38,10 @@ function sound(color){
     var audio = new Audio(`sounds/${color}.mp3`)
     audio.play()
 }
+
+function AnimateUserPress(currentColor) {
+    document.getElementById(currentColor).classList.add("pressed");
+    setTimeout(() => {
+        document.getElementById(currentColor).classList.remove("pressed");
+    }, 100);
+}
