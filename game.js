@@ -13,3 +13,28 @@ document.addEventListener('keypress', () => {
     }
 })
 
+function nextSequence(){
+    level++
+    document.querySelector("#level-title").textContent = `Level ${level}`
+    let number = Math.floor(Math.random()*4)
+    let randomcolor = buttonColors[number]
+    gamePattern.push(color)
+    
+    MakeAnimations()
+}
+
+function MakeAnimations(){
+    for (let i = 0 ;i<gamePattern.length;i++){
+        let color = gamePattern[i];
+        document.getElementById(color).classList.add("pressed")
+        sound(color)
+        setTimeout(() => {
+            document.getElementById(color).classList.remove("pressed")
+        }, 100);
+    }
+}
+
+function sound(color){
+    var audio = new Audio(`sounds/${color}.mp3`)
+    audio.play()
+}
